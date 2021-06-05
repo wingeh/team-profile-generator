@@ -1,6 +1,6 @@
 class Intern { 
 
-    constructor(name, id, email) { 
+    constructor(name, id, email, school) { 
         this.name = name; 
         this.id = id; 
         this.title = "Intern"; 

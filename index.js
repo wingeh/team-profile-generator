@@ -9,12 +9,30 @@ const Engineer = require("./library/engineer");
 const Manager = require("./library/manager");
 
 function teamBuilder () {
-
-    function addManager();
-    function addEngineer();
-    function addIntern();
+    addManager();
+    addAdditional();
+    return;    
 };
 
+function addAdditional(){
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Would you like to add another team member?",
+            choices: ["Engineer", "Intern", "Done"]
+        }
+    ]);
+
+    //If
+    addEngineer();
+    //Elseif
+    addIntern();
+    //Else
+    //End and make HTML
+    return;
+};
+
+// Add a manager
 function addManager(){
     inquirer.prompt([
         {
@@ -30,8 +48,10 @@ function addManager(){
             name: "office"
         },
     ]);
+    return;
 };
 
+// Add an engineer
 function addEngineer(){
     inquirer.prompt([
         {
@@ -47,8 +67,11 @@ function addEngineer(){
             name: "github"
         },
     ]);
+    addAdditional();
+    return;
 };
 
+// Add an intern
 function addIntern(){
     inquirer.prompt([
         {
@@ -64,4 +87,9 @@ function addIntern(){
             name: "school"
         },
     ]);
+    addAdditional();
+    return;
 };
+
+//Start teamBuilder upon launch
+teamBuilder();

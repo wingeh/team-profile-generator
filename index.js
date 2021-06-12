@@ -1,20 +1,22 @@
 // Dependencies
 const inquirer = require("inquirer");
-const jest = require("jest");
+//const jest = require("jest");
 const fs = require("fs");
 
 // Libraries
-const Intern = require("./library/intern");
-const Engineer = require("./library/engineer");
-const Manager = require("./library/manager");
+// const Intern = require("./library/intern");
+// const Engineer = require("./library/engineer");
+// const Manager = require("./library/manager");
 
 function teamBuilder () {
+    console.log ("teamBuilder called")
     addManager();
     addAdditional();
     return;    
 };
 
 function addAdditional(){
+    console.log("addAdditional called")
     inquirer.prompt([
         {
             type: "list",
@@ -24,9 +26,9 @@ function addAdditional(){
     ]);
 
     //If
-    addEngineer();
+    //addEngineer();
     //Elseif
-    addIntern();
+    //addIntern();
     //Else
     //End and make HTML
     return;
@@ -34,6 +36,7 @@ function addAdditional(){
 
 // Add a manager
 function addManager(){
+    console.log("addManager called")
     inquirer.prompt([
         {
             message: "What is the team manager's name?",
@@ -53,6 +56,7 @@ function addManager(){
 
 // Add an engineer
 function addEngineer(){
+    console.log("addEngineer called")
     inquirer.prompt([
         {
             message: "What is the engineer's name?",
@@ -73,6 +77,7 @@ function addEngineer(){
 
 // Add an intern
 function addIntern(){
+    console.log ("addIntern called")
     inquirer.prompt([
         {
             message: "What is the inern's name?",

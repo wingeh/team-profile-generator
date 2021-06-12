@@ -3,15 +3,17 @@ const inquirer = require("inquirer");
 //const jest = require("jest");
 const fs = require("fs");
 
+let teamArray = [];
+
 // Libraries
-// const Intern = require("./library/intern");
-// const Engineer = require("./library/engineer");
-// const Manager = require("./library/manager");
+ const Intern = require("./library/intern");
+ const Engineer = require("./library/engineer");
+const Manager = require("./library/manager");
 
 function teamBuilder () {
     console.log ("teamBuilder called")
     addManager();
-    addAdditional();
+    //addAdditional();
     return;    
 };
 
@@ -21,17 +23,24 @@ function addAdditional(){
         {
             type: "list",
             message: "Would you like to add another team member?",
-            choices: ["Engineer", "Intern", "Done"]
+            choices: ["Engineer", "Intern", "Done"],
+            name: "next"
         }
-    ]);
+    ])
 
-    //If
-    //addEngineer();
-    //Elseif
-    //addIntern();
-    //Else
-    //End and make HTML
-    return;
+    .then(function (data) {
+        switch (data.next) {
+            case "Engineer":
+                addEngineer();
+                break;
+            case "Intern":
+                addIntern();
+                break;
+            case "Done":
+                makeHTML();
+                break;
+        }
+    });
 };
 
 // Add a manager
@@ -50,8 +59,17 @@ function addManager(){
             message: "What is the team manager's office number?",
             name: "office"
         },
-    ]);
-    return;
+    ])
+
+    .then(function (data) {
+        const name = data.name;
+        const id = 1;
+        const email = data.email;
+        const officeNumber = data.officeNumber;
+        const newPerson = new Manager(name, id, email, officeNumber);
+        teamArray.push(newPerson);
+        addAdditional();
+    });
 };
 
 // Add an engineer
@@ -70,9 +88,17 @@ function addEngineer(){
             message: "What is the engineers GitHub username?",
             name: "github"
         },
-    ]);
-    addAdditional();
-    return;
+    ])
+
+    .then(function (data) {
+        const name = data.name;
+        const id = teamArray.length + 1 ;
+        const email = data.email;
+        const gitHub = data.gitHub;
+        const newPerson = new Engineer (name, id, email, gitHub);
+        teamArray.push(newPerson);
+        addAdditional();
+    });
 };
 
 // Add an intern
@@ -92,8 +118,12 @@ function addIntern(){
             name: "school"
         },
     ]);
-    addAdditional();
-    return;
+    //addAdditional();
+    
+};
+
+function makeHTML(){
+    console.log("makeHTML called")
 };
 
 //Start teamBuilder upon launch

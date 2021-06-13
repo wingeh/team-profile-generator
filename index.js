@@ -13,7 +13,6 @@ const Manager = require("./library/manager");
 function teamBuilder () {
     console.log ("teamBuilder called")
     addManager();
-    //addAdditional();
     return;    
 };
 
@@ -67,7 +66,7 @@ function addManager(){
         const email = data.email;
         const officeNumber = data.officeNumber;
         const newPerson = new Manager(name, id, email, officeNumber);
-        templateArray.push(newPerson);
+        teamArray.push(newPerson);
         addAdditional();
     });
 };

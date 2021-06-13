@@ -212,6 +212,10 @@ function makeHTML () {
     `
     //Push HTML Body to HTML template variable
     templateArray.push(footerHTML);
+
+    //Create team profile output file
+    fs.writeFile(`./team-profile/index.html`, templateArray.join(""), function (err) {
+    })
 };
 
 

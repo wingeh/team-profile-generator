@@ -155,7 +155,7 @@ function makeHTML () {
     //Push headerHTML to template
         templateArray.push(headHTML);
     //mainHTML
-        for (let i = 1; i < templateArray.length; i++) {
+        for (let i = 0; i < teamArray.length; i++) {
             let mainHTML = `
             <div class="team-card">
                 <div class="card-upper">
@@ -165,45 +165,48 @@ function makeHTML () {
                 <div class="card-lower">
                     <ul>
                         <li>
-                            Employee ID:${templateArray[i].id}
+                            Employee ID: ${teamArray[i].id}
                         </li>
                         <li>
-                            Email: <a href="mailto:${templateArray[i].email}">${templateArray[i].email}</a>
+                            Email: <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a>
                         </li>
             `
             //For Managers show Office Number
-            if (templateArray[i].officeNumber) {
+            if (teamArray[i].officeNumber) {
                 mainHTML += `
                         <li>
-                            Office #: ${templateArray[i].officeNumber}
+                            Office #: ${teamArray[i].officeNumber}
                         </li>
                 `
             //For Engineers show GitHub
-            } else if (teamArray[i].gitHub) {
+            }; 
+            if (teamArray[i].gitHub) {
                 mainHTML += `
                         <li>
-                            GitHub: <a href="https://github.com/${templateArray[i].github}">${templateArray[i].gitHub}</a>
+                            GitHub: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].gitHub}</a>
                         </li>
                 `
             //For Interns show School
-            } else if (templateArray[i].school) {
-                mainHTMLt += `
+            };
+            if (teamArray[i].school) {
+                mainHTML += `
                         <li>
-                            School: ${templateArray[i].school}
+                            School: ${teamArray[i].school}
                         </li>
                 `
-            }
+            };
 
             mainHTML += `
                 </div>
             </div>
-        </main>
         `
+           //Push mainHTML to template
+           templateArray.push(mainHTML)
         };
-    //Push mainHTML to template
-        templateArray.push(mainHTML);
+ 
     //footerHTML
     const footerHTML = `
+        </main>
         <footer>
         </footer>
     </body>

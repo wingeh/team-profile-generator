@@ -12,5 +12,12 @@ function makeHTML () {
     <title>Team Profile</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <style></style>
-</head>`
+</head>
+<body>
+    <header>
+        <h1>Team Profile</h1>
+    </header>
+    <main>
+    `
+    templateArray.push(initialHTML);
 }

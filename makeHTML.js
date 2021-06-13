@@ -1,8 +1,10 @@
 function makeHTML () {
     console.log("Thank you for using Team Generator! Your HTML document is being written now...")
 
+//Variable to hold completed HTML template
     const templateArray = []
-    const initialHTML = `
+//headerHTML
+    const headHTML = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,24 @@ function makeHTML () {
     <header>
         <h1>Team Profile</h1>
     </header>
-    <main>
     `
-    templateArray.push(initialHTML);
-}
+//Push headerHTML to template
+    templateArray.push(headHTML);
+//mainHTML
+    const mainHTML = `
+    <main>
+    </main>
+    `
+//Push mainHTML to template
+    templateArray.push(mainHTML);
+//footerHTML
+const footerHTML = `
+    <footer>
+    </footer>
+</body>
+</html>    
+`
+//Push HTML Body to HTML template variable
+templateArray.push(footerHTML);
+
+};

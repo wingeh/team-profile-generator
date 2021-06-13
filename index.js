@@ -6,8 +6,8 @@ const fs = require("fs");
 let teamArray = [];
 
 // Libraries
- const Intern = require("./library/intern");
- const Engineer = require("./library/engineer");
+const Intern = require("./library/intern");
+const Engineer = require("./library/engineer");
 const Manager = require("./library/manager");
 
 function teamBuilder () {
@@ -86,7 +86,7 @@ function addEngineer(){
         },
         {
             message: "What is the engineers GitHub username?",
-            name: "github"
+            name: "gitHub"
         },
     ])
 
@@ -117,8 +117,16 @@ function addIntern(){
             message: "What is the intern's school of record?",
             name: "school"
         },
-    ]);
-    //addAdditional();
+    ])
+    .then(function (data) {
+        const name = data.name;
+        const id = teamArray.length + 1 ;
+        const email = data.email;
+        const school = data.school;
+        const newPerson = new Intern (name, id, email, school);
+        teamArray.push(newPerson);
+        addAdditional();
+    });
     
 };
 

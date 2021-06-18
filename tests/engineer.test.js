@@ -3,9 +3,9 @@ const Engineer = require('../library/engineer.js');
 const name = "Andrew";
 const id = 1;
 const email = "andrew@email.com";
-const gitHub = "AnDrEw";
+const github = "AnDrEw";
 
-const testEngineer = new Engineer(name, id, email, gitHub);
+const testEngineer = new Engineer(name, id, email, github);
 
 test('Name matches', () => {
     expect(testEngineer.name).toEqual(expect.any(String))
@@ -25,5 +25,5 @@ test('Name matches', () => {
   });
   
   test('GitHub Provided', () => {
-    expect(testEngineer.gitHub).toEqual(expect.any(String))
+    expect(testEngineer.github).toEqual(expect.any(String))
   });

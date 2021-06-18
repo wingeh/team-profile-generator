@@ -162,7 +162,7 @@ function makeHTML () {
                     <h2>${teamArray[i].name}</h2>
                     <h3>${teamArray[i].title}</h3>
                 </div>
-                <div class="card-lower">
+                <div class="card-body">
                     <ul>
                         <li>
                             Employee ID: ${teamArray[i].id}
@@ -172,18 +172,18 @@ function makeHTML () {
                         </li>
             `
             //For Managers show Office Number
-            if (teamArray[i].officeNumber) {
+            if (teamArray[i].office) {
                 mainHTML += `
                         <li>
-                            Office #: ${teamArray[i].officeNumber}
+                            Office #: ${teamArray[i].office}
                         </li>
                 `
             //For Engineers show GitHub
             }; 
-            if (teamArray[i].gitHub) {
+            if (teamArray[i].github) {
                 mainHTML += `
                         <li>
-                            GitHub: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].gitHub}</a>
+                            GitHub: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].github}</a>
                         </li>
                 `
             //For Interns show School

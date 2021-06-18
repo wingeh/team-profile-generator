@@ -68,7 +68,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  /* max-width: 300px; */
+  max-width: 300px;
 }
 
 .card-upper{
@@ -79,18 +79,6 @@ main {
   background-color: var(--primary-color);
   color: white;
   align-self: flex-start;
-  
-}
-
-.card-footer{
-  border-radius: 0px 0px 10px 10px;
-  width: 100%;
-  padding: 15px 10px 5px 10px;
-  margin: 0px;
-  color: #000;
-  background-color:#eee;
-  text-align: center;
-  align-self: flex-end;
   
 }
 

@@ -3,9 +3,10 @@ const Manager = require('../library/manager.js');
 const name = "Andrew";
 const id = 1;
 const email = "andrew@email.com";
+const title = "Manager";
 const office = 54;
 
-const testManager = new Manager(name, id, email, office);
+const testManager = new Manager(name, id, email, title, office);
 
 test('Name matches', () => {
     expect(testManager.name).toEqual(expect.any(String))

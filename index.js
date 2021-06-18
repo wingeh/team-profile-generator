@@ -1,6 +1,5 @@
 // Dependencies
 const inquirer = require("inquirer");
-//const jest = require("jest");
 const fs = require("fs");
 
 let teamArray = [];
@@ -11,13 +10,11 @@ const Engineer = require("./library/engineer");
 const Manager = require("./library/manager");
 
 function teamBuilder () {
-    console.log ("teamBuilder called")
     addManager();
     return;    
 };
 
 function addAdditional(){
-    console.log("addAdditional called")
     inquirer.prompt([
         {
             type: "list",
@@ -44,7 +41,6 @@ function addAdditional(){
 
 // Add a manager
 function addManager(){
-    console.log("addManager called")
     inquirer.prompt([
         {
             message: "What is the team manager's name?",
@@ -64,8 +60,9 @@ function addManager(){
         const name = data.name;
         const id = 1;
         const email = data.email;
-        const officeNumber = data.officeNumber;
-        const newPerson = new Manager(name, id, email, officeNumber);
+        const office = data.office;
+        const title = "Manager";
+        const newPerson = new Manager(name, id, email, title, office);
         teamArray.push(newPerson);
         addAdditional();
     });
@@ -85,7 +82,7 @@ function addEngineer(){
         },
         {
             message: "What is the engineers GitHub username?",
-            name: "gitHub"
+            name: "github"
         },
     ])
 
@@ -93,8 +90,9 @@ function addEngineer(){
         const name = data.name;
         const id = teamArray.length + 1 ;
         const email = data.email;
-        const gitHub = data.gitHub;
-        const newPerson = new Engineer (name, id, email, gitHub);
+        const github = data.github;
+        const title = "Engineer";
+        const newPerson = new Engineer (name, id, email, title, github);
         teamArray.push(newPerson);
         addAdditional();
     });
@@ -102,10 +100,9 @@ function addEngineer(){
 
 // Add an intern
 function addIntern(){
-    console.log ("addIntern called")
     inquirer.prompt([
         {
-            message: "What is the inern's name?",
+            message: "What is the intern's name?",
             name: "name"
         },
         {
@@ -122,7 +119,8 @@ function addIntern(){
         const id = teamArray.length + 1 ;
         const email = data.email;
         const school = data.school;
-        const newPerson = new Intern (name, id, email, school);
+        const title = "Intern";
+        const newPerson = new Intern (name, id, email, title, school);
         teamArray.push(newPerson);
         addAdditional();
     });
@@ -144,13 +142,14 @@ function makeHTML () {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Team Profile</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
             <h1>Team Profile</h1>
         </header>
         <main>
+        <div class="container">
         `
     //Push headerHTML to template
         templateArray.push(headHTML);
@@ -172,7 +171,7 @@ function makeHTML () {
                         </li>
             `
             //For Managers show Office Number
-            if (teamArray[i].office) {
+            if (teamArray[i].title === "Manager") {
                 mainHTML += `
                         <li>
                             Office #: ${teamArray[i].office}
@@ -180,7 +179,7 @@ function makeHTML () {
                 `
             //For Engineers show GitHub
             }; 
-            if (teamArray[i].github) {
+            if (teamArray[i].title === "Engineer") {
                 mainHTML += `
                         <li>
                             GitHub: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].github}</a>
@@ -188,7 +187,7 @@ function makeHTML () {
                 `
             //For Interns show School
             };
-            if (teamArray[i].school) {
+            if (teamArray[i].title === "Intern") {
                 mainHTML += `
                         <li>
                             School: ${teamArray[i].school}
@@ -199,13 +198,14 @@ function makeHTML () {
             mainHTML += `
                 </div>
             </div>
-        `
+        `   
            //Push mainHTML to template
            templateArray.push(mainHTML)
         };
  
     //footerHTML
     const footerHTML = `
+        </div>
         </main>
         <footer>
         </footer>

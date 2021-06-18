@@ -3,9 +3,10 @@ const Intern = require('../library/intern.js');
 const name = "Andrew";
 const id = 1;
 const email = "andrew@email.com";
+const title = "Intern";
 const school = "Cool Skool";
 
-const testIntern = new Intern(name, id, email, school);
+const testIntern = new Intern(name, id, email, title, school);
 
 test('Name matches', () => {
     expect(testIntern.name).toEqual(expect.any(String))

@@ -7,6 +7,19 @@ class Engineer {
         this.email = email; 
         this.github = github;
     };
+
+    getName() {
+    return this.name;
+    };
+    getId() {
+    return this.id;
+    };
+    getTitle() {
+    return this.title;
+    };
+    getEmail() {
+    return this.email;
+    };
 }
 
 module.exports = Engineer;

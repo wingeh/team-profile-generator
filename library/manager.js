@@ -7,6 +7,18 @@ class Manager {
         this.email = email; 
         this.office = office;
     };
+    getName() {
+        return this.name;
+    };
+    getId() {
+        return this.id;
+    };
+    getTitle() {
+        return this.title;
+    };
+    getEmail() {
+        return this.email;
+    };
 }
 
 module.exports = Manager;

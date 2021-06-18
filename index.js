@@ -144,7 +144,7 @@ function makeHTML () {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Team Profile</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <style></style>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>

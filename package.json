@@ -1,6 +1,16 @@
 {
+  "name": "Team-Profile-Generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "dependencies": {
     "inquirer": "^8.1.0",
     "jest": "^27.0.4"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
